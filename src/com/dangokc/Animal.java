@@ -34,7 +34,7 @@ public class Animal {
     //This method actually @override ToString method
     //Print out Class and name variable
     public String toString() {
-        return String.format("Class-%s; Name: %s - Breed: %s\n"
+        return String.format("Class-%s; Name: %s - Breed: %s\t"
                                 , getClass().getName()
                                 , getName()
                                 , getBreed());

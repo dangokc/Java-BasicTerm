@@ -14,9 +14,8 @@ public class Cat extends Animal{
     }
     
     public String toString() {
-        return String.format("Super:%s\t; Sub:%s\t%b\n"
+        return String.format("Super:%s\t; Sub:isDeclawed: %b\n"
                                 , super.toString()
-                                , getClass().getName()
                                 , _isDeclawed 
                             );
     }

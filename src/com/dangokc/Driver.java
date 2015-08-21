@@ -10,7 +10,7 @@ public class Driver {
         Animal a3 = new Animal("Fluffy", "Cat");
         System.out.println(a3);
         
-        Dog d = new Dog("lulu", "Dog");
+        Dog d = new Dog("lulu", "Dog", false);
         System.out.println(d);
         
         Cat c = new Cat("kitty", "Cat", true);
