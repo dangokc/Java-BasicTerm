@@ -3,17 +3,52 @@ package com.dangokc;
 
 public class Driver {
     public static void main(String[] args){
-        Animal a = new Animal();
-        System.out.println(a);
-        Animal a2 = new Animal("Fido", "Dog");
-        System.out.println(a2);
-        Animal a3 = new Animal("Fluffy", "Cat");
-        System.out.println(a3);
+        Animal[] myPets = new Animal[5];
+        Dog d = new Dog("Fido", "Black Lab", false);
+        Cat c = new Cat("Fluffy", "Persian", true);
+        myPets[0] = d;
+        myPets[1] = new Dog("Woofy", "German Shepherd", true);
+        myPets[2] = c;
+        myPets[3] = new Cat("Spot", "Siamese", false);
+        myPets[4] = new Animal("Tank", "Turtle");
         
-        Dog d = new Dog("lulu", "Dog", false);
-        System.out.println(d);
+        //They are all animals, and For Each loop know which one is what
+        /*
+        for(Animal a : myPets) {
+            System.out.println(a);
+        }
+        */
         
-        Cat c = new Cat("kitty", "Cat", true);
-        System.out.println(c);
+        //we can set the Breed, since Breed property is in Animal Class
+        myPets[0].setBreed("Vizsla");
+        
+        /*
+        but we can't set a deeper property in Dog or Cat class
+        myPets[0].setIsServiceAnimal(true);
+        myPets[2].setIsDeclawed(true);
+        
+        we can use downcast thought as long as we know what type they are
+        or we will get ClassCastException!
+        ((Dog)myPets[0]).setIsServiceAnimal(true);
+        ((Cat)myPets[2]).setIsDeclawed(true);
+        */
+        
+        //solution for dynamic cast
+        for (Animal a : myPets) {
+            if (a instanceof Dog) {
+                System.out.println("Catched an instance of Dog");
+                ((Dog)a).setIsServiceAnimal(true);
+            }
+            else if (a instanceof Cat) {
+                System.out.println("Catched an instance of Cat");
+                ((Cat)a).setIsDeclawed(false);
+            }
+            else if (a instanceof Animal) {
+                System.out.println("Catched an instance of Animal");
+            }
+            System.out.println(a);
+        }
+       
+        
     }
 }
